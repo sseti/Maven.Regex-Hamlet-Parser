@@ -21,16 +21,36 @@ public class HamletParserTest {
         Assert.assertNotEquals(hamletText, actual);
     }
 
-
     @Test
     public void testChangeHoratioToTariq() {
+
+        String actual = hamletParser.getHamletData();
+        hamletText = hamletParser.changeHamletToLeon(hamletText);
+        Assert.assertNotEquals(hamletText, actual);
+    }
+
+    @Test
+    public void testFindHoratio1() {
+        Boolean check = hamletText.contains("HORATIO");
+        Assert.assertTrue(check);
     }
 
     @Test
     public void testFindHoratio() {
+        hamletText = hamletParser.changeHoratioToTariq(hamletText);
+        Boolean checker = hamletText.contains("HORATIO");
+        Assert.assertFalse(checker);
     }
 
     @Test
     public void testFindHamlet() {
+        hamletText = hamletParser.changeHamletToLeon(hamletText);
+        Boolean checker = hamletText.contains("HAMLET");
+        Assert.assertFalse(checker);
+    }
+    @Test
+    public void testFindHamlet1() {
+        Boolean check = hamletText.contains("HAMLET");
+        Assert.assertTrue(check);
     }
 }
